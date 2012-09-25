@@ -1,6 +1,11 @@
 .metadata
 .classpath
 .project
+.settings
+.worksheet
+.cache
 *.class
 bin
-
+target
+jar
+jars
