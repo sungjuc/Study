@@ -4,6 +4,7 @@
 .settings
 .worksheet
 .cache
+.DS_Store
 *.class
 bin
 target
