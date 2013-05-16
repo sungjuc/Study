@@ -30,4 +30,20 @@ object listfun {
     pack(xs) map (ys => (ys.head, ys.length))     //> encode: [T](xs: List[T])List[(T, Int)]
 
   encode(data)                                    //> res7: List[(String, Int)] = List((a,3), (b,1), (c,2), (a,1))
+
+  def concat[T](xs: List[T], ys: List[T]): List[T] =
+    (xs foldRight ys)(_ :: _)                     //> concat: [T](xs: List[T], ys: List[T])List[T]
+
+  def mapFun[T, U](xs: List[T], f: T => U): List[U] =
+    (xs foldRight List[U]())(f(_) :: _)           //> mapFun: [T, U](xs: List[T], f: T => U)List[U]
+
+  def lengthFun[T](xs: List[T]): Int =
+    (xs foldRight 0)((xs, x) => x + 1)            //> lengthFun: [T](xs: List[T])Int
+
+  val numdata = List(1, 2, 3, 4, 5, 6, 7)         //> numdata  : List[Int] = List(1, 2, 3, 4, 5, 6, 7)
+  mapFun[Int, Pair[Int, Int]](numdata, x => (x, x))
+                                                  //> res8: List[(Int, Int)] = List((1,1), (2,2), (3,3), (4,4), (5,5), (6,6), (7,
+                                                  //| 7))
+  lengthFun(numdata)                              //> res9: Int = 7
+
 }
