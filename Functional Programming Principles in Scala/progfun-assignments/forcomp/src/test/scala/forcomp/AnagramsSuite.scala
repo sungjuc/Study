@@ -73,7 +73,6 @@ class AnagramsSuite extends FunSuite {
   test("sentence anagrams: Linux rulez") {
 
     val sentence = List("Linux", "rulez")
-    println(sentenceAnagrams(sentence))
 
     val anas = List(
       List("Rex", "Lin", "Zulu"),

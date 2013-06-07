@@ -193,7 +193,6 @@ object Anagrams {
           rest <- helper(subtract(occ, i))
         } yield y :: rest
     }
-    println(sentenceOccurrences(sentence))
     helper(sentenceOccurrences(sentence))
   }
 }
