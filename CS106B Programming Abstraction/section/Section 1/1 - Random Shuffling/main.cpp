@@ -24,8 +24,8 @@ int main() {
 }
 
 string randomShuffle(string input) {
-    if(input.size()==0)
-        return "";
-    int randomIndex = randomInteger(0, input.size());
-    return input[randomIndex] + randomShuffle(input.erase(randomIndex, 1));
+    if(input.length()==1)
+        return input;
+    int randomIndex = randomInteger(0, input.length()-1);
+    return input[randomIndex] + randomShuffle(input.substr(0, randomIndex) + input.substr(randomIndex+1));
 }

@@ -22,15 +22,14 @@ int main() {
 }
 
 void averageValueInFile(string filename, double& result) {
-
-    ifstream infile;
-    infile.open(filename.c_str());
-    string temp;
+    ifstream infile(filename.c_str());
+    int temp;
     int count=0;
     double sum = 0;
-    while(getline(infile, temp)) {
+    
+    while(infile>>temp){
         count++;
-        sum += atof(temp.c_str());
+        sum += temp;
     }
     result = sum/count;
     infile.close();

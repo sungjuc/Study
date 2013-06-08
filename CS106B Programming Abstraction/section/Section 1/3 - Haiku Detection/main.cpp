@@ -53,8 +53,7 @@ bool isHaiku(string filename) {
         }
             
     }
-    
-    
+    return true;
 }
 
 int syllablesIn(string word) {
