@@ -1,8 +1,8 @@
 /*
  * File: ConsecutiveHeads.cpp
  * --------------------------
- * Name: [TODO: enter name here]
- * Section: [TODO: enter section leader here]
+ * Name: [SungJu Cho]
+ * Section: [Self]
  * This file is the starter project for the Consecutive Heads problem.
  * [TODO: rewrite the documentation]
  */
