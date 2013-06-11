@@ -10,3 +10,7 @@ bin
 target
 jar
 jars
+.xcodeproj
+StanfordCPPLib
+.plist
+
