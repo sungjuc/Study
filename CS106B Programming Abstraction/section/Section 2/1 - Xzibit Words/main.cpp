@@ -39,13 +39,14 @@ string mostXzibitWord(Lexicon& words){
 }
 
 int getNumberOfSubstringWords(Lexicon& words, string word) {
-    int count = 0;
+    Set<string> used;
     for(int i=0; i<word.length(); i++){
-        for(int j= i + 1; j<word.length();j++){
+        for(int j= i ; j<=word.length();j++){
             string tmp = word.substr(i, j-i);
             if(words.contains(tmp))
-                count++;
+                used += tmp;
+            if (!words.containsPrefix(tmp)) break;
         }
     }
-    return count;
+    return used.size();
 }
