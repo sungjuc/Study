@@ -12,5 +12,6 @@ jar
 jars
 *.xcodeproj
 StanfordCPPLib
-.plist
+*.plist
+*.jar
 
