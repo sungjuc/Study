@@ -19,7 +19,11 @@ int main() {
 }
 
 void fillRegion(Grid<bool>& pixels, int row, int col) {
-   if (!pixels[row][col])
+   if (!pixels[row][col] ||
+       row < 0 ||
+       col < 0 ||
+       row >= pixels.numRows() ||
+       col >= pixels.numCols())
        return;
     
     pixels[row][col] = true;
