@@ -11,7 +11,6 @@
 using namespace std;
 
 bool isMeasurable(int target, Vector<int>& weights);
-bool isMeasurable(int target, int pos, Vector<int>& weights);
 
 int main() {
     cout << "Weights and Balances" << endl;
@@ -26,15 +25,15 @@ int main() {
 }
 
 bool isMeasurable(int target, Vector<int>& weights) {
-    return isMeasurable(target, 0, weights);
-}
-
-bool isMeasurable(int target, int pos, Vector<int>& weights) {
-    if(pos == weights.size())
-        return target == 0;
-    int weight = weights[pos];
-    pos++;
-    return isMeasurable(target - weight, pos, weights) ||
-           isMeasurable(target, pos, weights) ||
-    isMeasurable(target + weight, pos, weights);
+    if(weights.isEmpty())
+        return target ==0;
+    
+    int weight = weights[0];
+    Vector<int> rest = weights;
+    
+    rest.remove(0);
+    
+    return isMeasurable(target + weight, rest)
+           || isMeasurable(target, rest)
+           || isMeasurable(target - weight, rest);
 }
