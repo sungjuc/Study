@@ -6,16 +6,16 @@
 //
 //
 
-#ifndef Double_Ended_Queues_deque_h
-#define Double_Ended_Queues_deque_h
+#ifndef Double_Ended_Queues_Deque_h
+#define Double_Ended_Queues_Deque_h
 
-class Dequeu {
+class Deque {
 public:
-    Dequeu();
-    ~Dequeu();
+    Deque();
+    ~Deque();
 
-    void pushFront();
-    void pushBack();
+    void pushFront(int value);
+    void pushBack(int value);
 
     int popFront();
     int popBack();
