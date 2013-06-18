@@ -17,6 +17,7 @@ struct Cell {
 
 void quicksort(Cell*& list);
 Cell* getSample();
+void printList(Cell*& list);
 
 int main() {
     
@@ -26,17 +27,8 @@ int main() {
     
     quicksort(sample);
     
-    Cell* cursor = sample;
-    bool isFirst = true;
+    printList(sample);
     
-    while(cursor != NULL){
-        if(!isFirst)
-            cout<<", ";
-        isFirst = false;
-        cout<<cursor->value;
-        cursor = cursor->next;
-    }
-    cout<<endl;
     return 0;
 }
 
@@ -55,8 +47,6 @@ void quicksort(Cell*& list){
         Cell* tmp = new Cell;
         tmp->value = cursor->value;
         if(cursor->value <= first->value) {
-            if(left == NULL)
-                leftLast = tmp;
             tmp->next = left;
             left = tmp;
         } else {
@@ -65,10 +55,27 @@ void quicksort(Cell*& list){
         }
     }
     
-    leftLast->next = first;
+    if(right != NULL) {
+        quicksort(right);
+    }
+    
+    if(left != NULL) {
+        quicksort(left);
+    }
+    
+    leftLast = left;
+    while(left != NULL && leftLast->next != NULL) {
+        leftLast = leftLast->next;
+    }
+    if(leftLast != NULL)
+        leftLast->next = first;
+   
     first->next = right;
     
-    list = left;
+    if(left!=NULL)
+        list = left;
+    else
+        list = first;
 }
 
 Cell* getSample() {
@@ -80,7 +87,24 @@ Cell* getSample() {
     Cell* sample3 = new Cell;
     sample3-> value = 7;
     sample2->next = sample3;
-    sample3->next=NULL;
+    Cell* sample4 = new Cell;
+    sample4->value = 1;
+    sample3->next = sample4;
+    sample4->next = NULL;
     
     return sample;
+}
+
+void printList(Cell*& list) {
+    Cell* cursor = list;
+    bool isFirst = true;
+    
+    while(cursor != NULL){
+        if(!isFirst)
+            cout<<", ";
+        isFirst = false;
+        cout<<cursor->value;
+        cursor = cursor->next;
+    }
+    cout<<endl;
 }

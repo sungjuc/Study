@@ -25,11 +25,12 @@ Deque::~Deque(){
 void Deque::pushFront(int value) {
     Cell* tmp = new Cell;
     tmp->value=value;
+    tmp->next = head;
+    tmp->prev = NULL;
     
     if(head == NULL){
         head = tail = tmp;
     } else {
-        tmp->next=head;
         head->prev=tmp;
         head=tmp;
     }
@@ -38,11 +39,12 @@ void Deque::pushFront(int value) {
 void Deque::pushBack(int value) {
     Cell* tmp = new Cell;
     tmp->value = value;
+    tmp->prev=tail;
+    tmp->next=NULL;
     
     if(tail==NULL){
         head=tail=tmp;
     } else {
-        tmp->prev=tail;
         tail->next=tmp;
         tail = tmp;
     }
