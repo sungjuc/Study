@@ -31,7 +31,7 @@ Node* nthNode(Node* root, int n){
     }
     
     if(root->leftSubtreeSize < n) {
-        return nthNode(root->right, n-root->leftSubtreeSize);
+        return nthNode(root->right, n-1-root->leftSubtreeSize);
     }
     
     return root;
